@@ -1,0 +1,118 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    and
+    bool
+    division
+    double_equal
+    equal
+    float
+    greater
+    greater_equal
+    id
+    l_bra
+    l_cbra
+    l_par
+    less
+    less_equal
+    minus
+    mod
+    not
+    not_equal
+    or
+    power
+    r_bra
+    r_cbra
+    r_par
+    string
+    times
+
+Grammar
+
+Rule 0     S' -> init
+Rule 1     init -> instruction_list
+Rule 2     instruction_list -> int plus int
+
+Terminals, with rules where they appear
+
+and                  : 
+bool                 : 
+division             : 
+double_equal         : 
+equal                : 
+error                : 
+float                : 
+greater              : 
+greater_equal        : 
+id                   : 
+int                  : 2 2
+l_bra                : 
+l_cbra               : 
+l_par                : 
+less                 : 
+less_equal           : 
+minus                : 
+mod                  : 
+not                  : 
+not_equal            : 
+or                   : 
+plus                 : 2
+power                : 
+r_bra                : 
+r_cbra               : 
+r_par                : 
+string               : 
+times                : 
+
+Nonterminals, with rules where they appear
+
+init                 : 0
+instruction_list     : 1
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . init
+    (1) init -> . instruction_list
+    (2) instruction_list -> . int plus int
+
+    int             shift and go to state 3
+
+    init                           shift and go to state 1
+    instruction_list               shift and go to state 2
+
+state 1
+
+    (0) S' -> init .
+
+
+
+state 2
+
+    (1) init -> instruction_list .
+
+    $end            reduce using rule 1 (init -> instruction_list .)
+
+
+state 3
+
+    (2) instruction_list -> int . plus int
+
+    plus            shift and go to state 4
+
+
+state 4
+
+    (2) instruction_list -> int plus . int
+
+    int             shift and go to state 5
+
+
+state 5
+
+    (2) instruction_list -> int plus int .
+
+    $end            reduce using rule 2 (instruction_list -> int plus int .)
+
